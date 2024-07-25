@@ -1,0 +1,10 @@
+{
+    "bot_token": "",
+    "channel_id_numeric": "-1002184004582",
+    "channel_id_text": "iipoem",
+    "categories": [
+        102,
+        31
+],
+    "poem_ids_file": "poem_ids.json"
+}
