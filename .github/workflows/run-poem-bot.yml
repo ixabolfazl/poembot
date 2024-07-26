@@ -2,8 +2,8 @@ name: Run Poem Bot
 
 on:
   schedule:
-    - cron: '0 8,18 * * *'  # Runs at 8 AM and 6 PM UTC every day
-  workflow_dispatch:  # Allows manual triggering
+    - cron: '0 5,15 * * *'  
+  workflow_dispatch:
 
 permissions:
   contents: write
