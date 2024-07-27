@@ -17,7 +17,7 @@ if __name__ == "__main__":
     poem_details, error = service.fetch_random_poem()
     
     if poem_details:
-        message = f"***{poem_details['fullTitle']}***\n\n{poem_details['plainText']}\n\n[گنجور](https://ganjoor.net{poem_details['fullUrl']}) | [سورس](https://github.com/ixabolfazl/poembot)\n📍@{config['channel_id_text']}"
+        message = f"***{poem_details['fullTitle']}***\n\n{poem_details['plainText']}\n\n[گنجور](https://ganjoor.net{poem_details['fullUrl']})\n📍@{config['channel_id_text']}"
         
         telegram_bot = TelegramBot(config)
         response = telegram_bot.send_message(message)
