@@ -23,7 +23,7 @@ class PoemService:
         return self.get_poem_details(random_poem_id)
 
     def get_poem_details(self, poem_id):
-        url = f'https://api.ganjoor.net/api/ganjoor/poem/{poem_id}?catInfo=false&catPoems=false&rhymes=false&recitations=false&images=false&songs=false&comments=false&verseDetails=false&navigation=false&relatedpoems=false'
+        url = f'https://api.ganjoor.net/api/ganjoor/poem/{poem_id}?catInfo=true&catPoems=false&rhymes=false&recitations=false&images=false&songs=false&comments=false&verseDetails=false&navigation=false&relatedpoems=false'
         response = requests.get(url)
 
         if response.status_code == 200:
@@ -33,7 +33,8 @@ class PoemService:
                 "fullTitle": poem_data.get('fullTitle', 'Unknown').replace('»', '|'),
                 "fullUrl": poem_data.get('fullUrl', 'Unknown'),
                 "plainText": poem_data.get('plainText', 'Unknown'),
-                "htmlText": poem_data.get('htmlText', 'Unknown')
+                "htmlText": poem_data.get('htmlText', 'Unknown'),
+                "poet_nickname": poem_data.get('category', {}).get('poet', {}).get('nickname', ''),
             }
 
             self.poem_ids_dict[str(poem_id)] = True
