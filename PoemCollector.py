@@ -17,7 +17,7 @@ class PoemCollector:
     def collect_poem_ids(self):
         for cat_id in self.cat_ids:
             url = f'https://api.ganjoor.net/api/ganjoor/cat/{cat_id}?poems=true&mainSections=false'
-            response = requests.get(url)
+            response = requests.get(url, timeout=10.0)
             if response.status_code == 200:
                 data = response.json()
                 if 'cat' in data and 'poems' in data['cat']:
