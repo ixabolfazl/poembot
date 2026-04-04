@@ -13,5 +13,5 @@ class TelegramBot:
             "parse_mode": "Markdown",
             "disable_web_page_preview":True
         }
-        response = requests.post(url, data=payload)
+        response = requests.post(url, data=payload, timeout=10.0)
         return response.json()

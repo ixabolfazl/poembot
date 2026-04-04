@@ -24,7 +24,7 @@ class PoemService:
 
     def get_poem_details(self, poem_id):
         url = f'https://api.ganjoor.net/api/ganjoor/poem/{poem_id}?catInfo=true&catPoems=false&rhymes=false&recitations=false&images=false&songs=false&comments=false&verseDetails=false&navigation=false&relatedpoems=false'
-        response = requests.get(url)
+        response = requests.get(url, timeout=10.0)
 
         if response.status_code == 200:
             poem_data = response.json()
