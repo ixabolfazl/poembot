@@ -10,8 +10,8 @@ class TelegramBot:
         payload = {
             "chat_id": self.chat_id,
             "text": message,
-            "parse_mode": "Markdown",
-            "disable_web_page_preview":True
+            "parse_mode": "HTML",
+            "disable_web_page_preview": True
         }
         response = requests.post(url, data=payload)
         return response.json()

@@ -28,13 +28,16 @@ class PoemService:
 
         if response.status_code == 200:
             poem_data = response.json()
+            category = poem_data.get('category') or {}
+            poet = category.get('poet') or {}
+            
             poem_details = {
                 "title": poem_data.get('title', 'Unknown'),
                 "fullTitle": poem_data.get('fullTitle', 'Unknown').replace('»', '|'),
                 "fullUrl": poem_data.get('fullUrl', 'Unknown'),
                 "plainText": poem_data.get('plainText', 'Unknown'),
                 "htmlText": poem_data.get('htmlText', 'Unknown'),
-                "poet_nickname": poem_data.get('category', {}).get('poet', {}).get('nickname', ''),
+                "poet_nickname": poet.get('nickname', ''),
             }
 
             self.poem_ids_dict[str(poem_id)] = True
